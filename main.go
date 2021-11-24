@@ -1,5 +1,5 @@
 
-// main.go
+
 package main
 
 import (
@@ -51,8 +51,7 @@ func createNewArticle(w http.ResponseWriter, r *http.Request) {
     reqBody, _ := ioutil.ReadAll(r.Body)
     var article Article 
     json.Unmarshal(reqBody, &article)
-    // update our global Articles array to include
-    // our new Article
+    
     Articles = append(Articles, article)
 
     json.NewEncoder(w).Encode(article)
